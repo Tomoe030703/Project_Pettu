@@ -27,6 +27,7 @@ $routes['api/dashboard/getPendingService'] = 'admin/dashboard/user/getPendingSer
 $routes['api/dashboard/isRegistered'] = 'admin/dashboard/user/isRegistered'; // API lấy trạng thái dịch vụ người dùng đã đăng ký
 $routes['api/dashboard/changePaymentStatus'] = 'admin/dashboard/user/changeServicePaymentStatus'; // API thay đổi trạng thái thanh toán dịch vụ
 
+$routes['api/dashboard/getListService'] = 'admin/dashboard/service/getListService'; // API lấy danh sách dịch vụ - AdminPage
 
 // User API
 $routes['api/users/update'] = 'user/profile/updateInfo'; // API update thông tin người dùng - Profile

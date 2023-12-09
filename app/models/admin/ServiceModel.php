@@ -70,5 +70,32 @@ class ServiceModel extends Model {
 
         return $response;
     }
+
+    // Lấy thông tin chi tiết của dịch vụ
+    public function handleGetListService() {
+        $queryGet = $this->db->table('services')
+            ->get();
+
+        $response = [];
+        $checkNull = false;
+
+        if (!empty($queryGet)):
+            foreach ($queryGet as $key => $item):
+                foreach ($item as $subKey => $subItem):
+                    if ($subItem === NULL || $subItem === ''):
+                        if ($subKey !== 'update_at'):
+                            $checkNull = true;
+                        endif;
+                    endif;
+                endforeach;
+            endforeach;
+        endif;
+
+        if (!$checkNull):
+            $response = $queryGet;
+        endif;
+
+        return $response;
+    }
  
 }
