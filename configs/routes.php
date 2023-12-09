@@ -28,6 +28,7 @@ $routes['api/dashboard/isRegistered'] = 'admin/dashboard/user/isRegistered'; // 
 $routes['api/dashboard/changePaymentStatus'] = 'admin/dashboard/user/changeServicePaymentStatus'; // API thay đổi trạng thái thanh toán dịch vụ
 
 $routes['api/dashboard/getListService'] = 'admin/dashboard/service/getListService'; // API lấy danh sách dịch vụ - AdminPage
+$routes['api/dashboard/addService'] = 'admin/dashboard/service/add'; // API thêm dịch vụ - AdminPage
 
 // User API
 $routes['api/users/update'] = 'user/profile/updateInfo'; // API update thông tin người dùng - Profile

@@ -26,6 +26,59 @@ class Service extends Controller {
         endif;
     }
 
+    // Thêm dịch vụ
+    public function add() {
+        $request = new Request();
+
+        if ($request->isPost()):
+            $data = $request->getFields();
+            $response = [];
+
+            if (!empty($data)):
+                $request->rules([
+                    'name' => 'required',
+                    'slug' => 'required',
+                    'content' => 'required',
+                    'cost' => 'required',
+                    'teamid' => 'required',
+                ]);
     
+                $request->message([
+                    'name.required' => 'Tên dịch vụ không được để trống',
+                    'slug.required' => 'Đường dẫn không được để trống',
+                    'content.required' => 'Nội dung không được để trống',
+                    'cost.required' => 'Giá không được để trống',
+                    'teamid.required' => 'Bộ phận đảm nhiệm không được để trống',
+                ]);
+    
+                $validate = $request->validate();
+
+                if ($validate):
+                    $result = $this->serviceModel->handleAddService($data);
+
+                    if ($result):
+                        $response = [
+                            'status' => true,
+                            'message' => 'Thêm thành công'
+                        ];
+                    else:
+                        $response = [
+                            'status' => false,
+                            'message' => 'Thêm thất bại'
+                        ];
+                    endif;
+                else:
+                    $response = [
+                        'status' => false,
+                        'errors' => Session::flash('pettu_session_errors')
+                    ];
+                endif;
+
+                echo json_encode($response);
+            endif;
+        endif;
+
+
+    }
 
 }

@@ -97,5 +97,28 @@ class ServiceModel extends Model {
 
         return $response;
     }
+
+    // Xử lý thêm dịch vụ
+    public function handleAddService($data) {
+        $dataInsert = [
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'icon' => $data['icon'],
+            'descr' => $_POST['descr'],
+            'content' => $_POST['content'],
+            'cost' => $data['cost'],
+            'teamid' => $data['teamid'],
+            'create_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $insertStatus = $this->db->table('services')
+            ->insert($dataInsert);
+
+        if ($insertStatus):
+            return true;
+        endif;
+
+        return false;
+    }
  
 }
