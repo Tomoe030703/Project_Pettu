@@ -37,24 +37,26 @@ class Database {
     
     //Sửa dữ liệu
     function updateData($table, $data, $condition = '') {
-
-        if (!empty($data)):
+        if (!empty($data)) :
             $updateStr = '';
-            foreach ($data as $key=>$value):
-                $updateStr.="$key='$value',";
+            foreach ($data as $key => $value) :
+                $updateStr .= "$key='$value',";
             endforeach;
 
             $updateStr = rtrim($updateStr, ',');
 
-            if (!empty($condition)):
+            if (!empty($condition)) :
                 $sql = "UPDATE $table SET $updateStr WHERE $condition";
-            else:
+                if (!empty($innerJoin)) :
+                    $sql = "UPDATE $table $innerJoin SET $updateStr WHERE $condition";
+                endif;
+            else :
                 $sql = "UPDATE $table SET $updateStr";
             endif;
 
             $status = $this->query($sql);
 
-            if ($status):
+            if ($status) :
                 return true;
             endif;
         endif;
