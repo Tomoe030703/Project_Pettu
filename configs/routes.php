@@ -25,6 +25,7 @@ $routes['api/dashboard/updateStatusAccount'] = 'admin/dashboard/user/updateStatu
 $routes['api/dashboard/confirmRegisterService'] = 'admin/dashboard/user/confirmRegisterService'; // API duyệt trạng thái đăng ký dịch vụ - AdminPage
 $routes['api/dashboard/getPendingService'] = 'admin/dashboard/user/getPendingService'; // API lấy danh sách dịch vụ đã đăng ký đăng chờ duyệt
 $routes['api/dashboard/isRegistered'] = 'admin/dashboard/user/isRegistered'; // API lấy trạng thái dịch vụ người dùng đã đăng ký
+$routes['api/dashboard/changePaymentStatus'] = 'admin/dashboard/user/changeServicePaymentStatus'; // API thay đổi trạng thái thanh toán dịch vụ
 
 
 // User API
@@ -38,4 +39,5 @@ $routes['api/users/updateQuantityInCart'] = 'user/cart/updateQuantityInCart'; //
 $routes['api/users/deleteProductInCart'] = 'user/cart/removeProductInCart'; // API xoá sản phẩm trong giỏ hàng - User
 $routes['api/users/getListProductCart'] = 'user/cart/getListProductInCart'; // API lấy danh sách sản phẩm trong giỏ hàng - User
 $routes['api/users/countListProductCart'] = 'user/cart/countListProductInCart'; // API lấy số lượng sản phẩm trong giỏ hàng - User
+
 ?>
