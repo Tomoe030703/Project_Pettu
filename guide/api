@@ -26,6 +26,7 @@ Admin Page
 8. API lấy danh sách dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/getListService
 9. API thêm dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/addService
 10. API xoá dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/deleteService
+11. API sửa dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/updateService
 
 User
 1. API thay đổi thông tin người dùng: http://localhost:8082/Project_Pettu/api/users/update 

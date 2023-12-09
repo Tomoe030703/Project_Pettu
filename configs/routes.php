@@ -30,6 +30,7 @@ $routes['api/dashboard/changePaymentStatus'] = 'admin/dashboard/user/changeServi
 $routes['api/dashboard/getListService'] = 'admin/dashboard/service/getListService'; // API lấy danh sách dịch vụ - AdminPage
 $routes['api/dashboard/addService'] = 'admin/dashboard/service/add'; // API thêm dịch vụ - AdminPage
 $routes['api/dashboard/deleteService'] = 'admin/dashboard/service/delete'; // API xoá dịch vụ - AdminPage
+$routes['api/dashboard/updateService'] = 'admin/dashboard/service/update'; // API sửa dịch vụ - AdminPage
 
 // User API
 $routes['api/users/update'] = 'user/profile/updateInfo'; // API update thông tin người dùng - Profile

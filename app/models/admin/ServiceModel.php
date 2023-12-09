@@ -140,5 +140,36 @@ class ServiceModel extends Model {
 
         return false;
     }
+
+    // Xử lý sửa dịch vụ
+    public function handleUpdateService($data, $serviceId) {
+        $checkEmpty = $this->db->table('services')
+            ->select('id')
+            ->where('id', '=', $serviceId)
+            ->first();
+
+        if (!empty($checkEmpty)):
+            $dataUpdate = [
+                'name' => $data['name'],
+                'slug' => $data['slug'],
+                'icon' => $data['icon'],
+                'descr' => $_POST['descr'],
+                'content' => $_POST['content'],
+                'cost' => $data['cost'],
+                'teamid' => $data['teamid'],
+                'update_at' => date('Y-m-d H:i:s'),
+            ];
+    
+            $updateStatus = $this->db->table('services')
+                ->where('id', '=', $serviceId)
+                ->update($dataUpdate);
+    
+            if ($updateStatus):
+                return true;
+            endif;
+        endif;
+        
+        return false;
+    }
     
 }
