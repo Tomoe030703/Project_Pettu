@@ -77,8 +77,38 @@ class Service extends Controller {
                 echo json_encode($response);
             endif;
         endif;
+    }
 
+    // Xoá dịch vụ
+    public function delete() {
+        $request = new Request();
 
+        if ($request->isPost()):
+            $data = $request->getFields();
+            $response = [];
+
+            if (!empty($data['serviceId'])):
+                $serviceId = $data['serviceId'];
+
+                if (!empty($serviceId)):
+                    $result = $this->serviceModel->handleDeleteService($serviceId);
+
+                    if ($result):
+                        $response = [
+                            'status' => true,
+                            'message' => 'Xoá thành công'
+                        ];
+                    else:
+                        $response = [
+                            'status' => false,
+                            'message' => 'Xoá thất bại'
+                        ];
+                    endif;
+                endif;
+
+                echo json_encode($response);
+            endif;
+        endif;
     }
 
 }

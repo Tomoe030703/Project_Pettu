@@ -25,7 +25,7 @@ Admin Page
 7. API thay đổi trạng thái thanh toán dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/changePaymentStatus
 8. API lấy danh sách dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/getListService
 9. API thêm dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/addService
-
+10. API xoá dịch vụ: http://localhost:8282/Project_Pettu/api/dashboard/deleteService
 
 User
 1. API thay đổi thông tin người dùng: http://localhost:8082/Project_Pettu/api/users/update 

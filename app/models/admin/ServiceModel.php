@@ -120,5 +120,25 @@ class ServiceModel extends Model {
 
         return false;
     }
- 
+
+    // Xử lý xoá dịch vụ
+    public function handleDeleteService($serviceId) {
+        $checkEmpty = $this->db->table('services')
+            ->select('id')
+            ->where('id', '=', $serviceId)
+            ->first();
+
+        if (!empty($checkEmpty)):
+            $deleteStatus =  $this->db->table('services')
+                ->where('id', '=', $serviceId)
+                ->delete();
+
+            if ($deleteStatus):
+                return true;
+            endif;
+        endif;
+
+        return false;
+    }
+    
 }
